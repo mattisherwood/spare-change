@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+:root {
+  --white: #fff;
+  --black: #000;
+  --darkgray: #282c34;
+  --midgray: #aaa;
+  --silver: #ddd;
+  --copper: #69510f;
+  --gold: #d49100;
+
+  --ratio: 5;
 }
 
-.App-logo {
-  height: 40vmin;
+.app {
+  min-height: 100vh;
+  background-color: var(--darkgray);
+  text-align: center;
+  display: block;
+}
+
+.logo {
+  height: 10vmin;
+  margin: 10vmin 0 0;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .logo {
+    animation: spin infinite 5s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+header {
+  padding: 10px;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--white);
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+button {
+  cursor: pointer;
+}
+
+.coin {
+  margin: 20px;
+  padding: 5px;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  border: solid 1px rgba(var(--black), 0.9);
+  box-shadow: 2px 2px 5px var(--black),
+              0.5px 0.5px 1px rgba(255,255,255,1) inset;
+  font-weight: bold;
+  transition: all 0.15s ease-in;
+}
+
+.coin span {
+  opacity: 0.3;
+  color: var(--midgray);
+  text-shadow: 1px  1px 0 var(--black),
+              -1px -1px 0 var(--white);
+}
+.coin:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 5px 15px -5px rgba(0,0,0,0.5),
+              0.5px 0.5px 1px rgba(255,255,255,1) inset;
+}
+
+.coin-1 {
+  width: calc(20.3px * var(--ratio));
+  background: var(--copper);
+}
+
+.coin-2 {
+  width: calc(25.9px * var(--ratio));
+  background: var(--copper);
+}
+
+.coin-5 {
+  width: calc(18px * var(--ratio));
+  background: var(--silver);
+}
+
+.coin-10 {
+  width: calc(24.5px * var(--ratio));
+  background: var(--silver);
+}
+
+.coin-20 {
+  width: calc(21.4px * var(--ratio));
+  background: var(--silver);
+}
+
+.coin-50 {
+  width: calc(27.3px * var(--ratio));
+  background: var(--silver);
+}
+
+.coin-100 {
+  width: calc(22.5px * var(--ratio));
+  background: var(--gold);
+}
+
+.coin-200 {
+  width: calc(28.4px * var(--ratio));
+  background: var(--gold);
+}
+
+.coin-1, .coin-2, .coin-5, .coin-10, .coin-100, .coin-200 {
+  border-radius: 50%;
+}
+
+.coin-20, .coin-50 {
+  /*clip-path: circle(50%); /* you can do better than a crappy clip path!*/
+}
+
+/* Title */
+.total {
+  color: var(--white);
+}
+
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
